@@ -30,10 +30,11 @@ namespace prjLocadora
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbbGenero = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbbProdutora = new System.Windows.Forms.ComboBox();
-            this.cbbGenero = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtAnoFilme = new System.Windows.Forms.TextBox();
@@ -41,7 +42,6 @@ namespace prjLocadora
             this.txtTituloFilme = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodFilme = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnPrimeiro = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnProximo = new System.Windows.Forms.Button();
@@ -51,8 +51,8 @@ namespace prjLocadora
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -73,32 +73,16 @@ namespace prjLocadora
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados do Filme";
             // 
-            // groupBox2
+            // groupBox3
             // 
-            this.groupBox2.Controls.Add(this.cbbProdutora);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(122, 93);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(240, 122);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Produtoras";
-            // 
-            // cbbProdutora
-            // 
-            this.cbbProdutora.FormattingEnabled = true;
-            this.cbbProdutora.Location = new System.Drawing.Point(99, 25);
-            this.cbbProdutora.Name = "cbbProdutora";
-            this.cbbProdutora.Size = new System.Drawing.Size(121, 28);
-            this.cbbProdutora.TabIndex = 8;
-            // 
-            // cbbGenero
-            // 
-            this.cbbGenero.FormattingEnabled = true;
-            this.cbbGenero.Location = new System.Drawing.Point(81, 25);
-            this.cbbGenero.Name = "cbbGenero";
-            this.cbbGenero.Size = new System.Drawing.Size(121, 28);
-            this.cbbGenero.TabIndex = 10;
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.cbbGenero);
+            this.groupBox3.Location = new System.Drawing.Point(380, 93);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(390, 122);
+            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Gêneros";
             // 
             // label5
             // 
@@ -109,6 +93,33 @@ namespace prjLocadora
             this.label5.Size = new System.Drawing.Size(69, 20);
             this.label5.TabIndex = 9;
             this.label5.Text = "Gênero";
+            // 
+            // cbbGenero
+            // 
+            this.cbbGenero.FormattingEnabled = true;
+            this.cbbGenero.Location = new System.Drawing.Point(81, 25);
+            this.cbbGenero.Name = "cbbGenero";
+            this.cbbGenero.Size = new System.Drawing.Size(121, 28);
+            this.cbbGenero.TabIndex = 10;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cbbProdutora);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Location = new System.Drawing.Point(6, 93);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(356, 122);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Produtoras";
+            // 
+            // cbbProdutora
+            // 
+            this.cbbProdutora.FormattingEnabled = true;
+            this.cbbProdutora.Location = new System.Drawing.Point(99, 25);
+            this.cbbProdutora.Name = "cbbProdutora";
+            this.cbbProdutora.Size = new System.Drawing.Size(250, 28);
+            this.cbbProdutora.TabIndex = 8;
             // 
             // label4
             // 
@@ -170,17 +181,6 @@ namespace prjLocadora
             this.txtCodFilme.Name = "txtCodFilme";
             this.txtCodFilme.Size = new System.Drawing.Size(102, 26);
             this.txtCodFilme.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.cbbGenero);
-            this.groupBox3.Location = new System.Drawing.Point(380, 93);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(240, 122);
-            this.groupBox3.TabIndex = 12;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Gêneros";
             // 
             // btnPrimeiro
             // 
@@ -283,10 +283,10 @@ namespace prjLocadora
             this.Text = "Filmes";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
