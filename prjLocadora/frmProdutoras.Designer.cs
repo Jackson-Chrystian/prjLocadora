@@ -138,40 +138,40 @@ namespace prjLocadora
             // 
             // btnPrimeiro
             // 
-            this.btnPrimeiro.Font = new System.Drawing.Font("Algerian", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrimeiro.Font = new System.Drawing.Font("Swis721 BlkEx BT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrimeiro.Location = new System.Drawing.Point(193, 247);
             this.btnPrimeiro.Name = "btnPrimeiro";
-            this.btnPrimeiro.Size = new System.Drawing.Size(75, 30);
+            this.btnPrimeiro.Size = new System.Drawing.Size(75, 35);
             this.btnPrimeiro.TabIndex = 3;
             this.btnPrimeiro.Text = "<<";
             this.btnPrimeiro.UseVisualStyleBackColor = true;
             // 
             // btnAnterior
             // 
-            this.btnAnterior.Font = new System.Drawing.Font("Algerian", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnterior.Font = new System.Drawing.Font("Swis721 BlkEx BT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnterior.Location = new System.Drawing.Point(294, 247);
             this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(75, 30);
+            this.btnAnterior.Size = new System.Drawing.Size(75, 35);
             this.btnAnterior.TabIndex = 4;
             this.btnAnterior.Text = "<";
             this.btnAnterior.UseVisualStyleBackColor = true;
             // 
             // btnProximo
             // 
-            this.btnProximo.Font = new System.Drawing.Font("Algerian", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProximo.Font = new System.Drawing.Font("Swis721 BlkEx BT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProximo.Location = new System.Drawing.Point(396, 247);
             this.btnProximo.Name = "btnProximo";
-            this.btnProximo.Size = new System.Drawing.Size(75, 30);
+            this.btnProximo.Size = new System.Drawing.Size(75, 35);
             this.btnProximo.TabIndex = 6;
             this.btnProximo.Text = ">";
             this.btnProximo.UseVisualStyleBackColor = true;
             // 
             // btnUltimo
             // 
-            this.btnUltimo.Font = new System.Drawing.Font("Algerian", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUltimo.Font = new System.Drawing.Font("Swis721 BlkEx BT", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUltimo.Location = new System.Drawing.Point(494, 247);
             this.btnUltimo.Name = "btnUltimo";
-            this.btnUltimo.Size = new System.Drawing.Size(75, 30);
+            this.btnUltimo.Size = new System.Drawing.Size(75, 35);
             this.btnUltimo.TabIndex = 5;
             this.btnUltimo.Text = ">>";
             this.btnUltimo.UseVisualStyleBackColor = true;
@@ -207,6 +207,7 @@ namespace prjLocadora
             this.btnExcluir.TabIndex = 8;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -217,6 +218,7 @@ namespace prjLocadora
             this.btnAlterar.TabIndex = 7;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // frmProdutoras
             // 
