@@ -13,6 +13,9 @@ namespace prjLocadora
 {
     public partial class frmProdutoras : Form
     {
+        int registoAtual = 0;
+        int totalRegistro = 0;
+        DataTable dtProdutora = new DataTable();
         String connectionString = @"Server=darnassus\motorhead; Database=db_230717; User Id=230717; Password=a12345678A";
         bool novo;
 
@@ -21,6 +24,14 @@ namespace prjLocadora
             InitializeComponent();
         }
 
+        private void navegar()
+        {
+            txtCodProd.Text = dtProdutora.Rows[registoAtual][0].ToString();
+            txtProd.Text = dtProdutora.Rows[registoAtual][1].ToString();
+            txtTelProd.Text = dtProdutora.Rows[registoAtual][2].ToString();
+            txtEmailProd.Text = dtProdutora.Rows[registoAtual][3].ToString();
+
+        }
         private void frmProdutoras_Load(object sender, EventArgs e)
         {
             btnSalvar.Enabled = false;
@@ -36,13 +47,12 @@ namespace prjLocadora
             con.Open();
             try
             {
-                reader = cmd.ExecuteReader();
-                if(reader.Read())
+                using (reader = cmd.ExecuteReader())
                 {
-                    txtCodProd.Text = reader[0].ToString();
-                    txtProd.Text = reader[1].ToString();
-                    txtTelProd.Text = reader[2].ToString();
-                    txtEmailProd.Text = reader[3].ToString();
+                    dtProdutora.Load(reader);
+                    totalRegistro = dtProdutora.Rows.Count;
+                    registoAtual = 0;
+                    navegar(); 
                 }
             } catch(Exception ex)
             {
@@ -57,11 +67,16 @@ namespace prjLocadora
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
+            
             btnNovo.Enabled = false;
             btnSalvar.Enabled = true;
             txtProd.Enabled = true;
             txtEmailProd.Enabled = true;
             txtTelProd.Enabled = true;
+            txtCodProd.Text = "";
+            txtProd.Text = "";
+            txtTelProd.Text = "";
+            txtEmailProd.Text = "";
             btnExcluir.Enabled = false;
             btnPrimeiro.Enabled = false;
             btnAnterior.Enabled = false;
@@ -138,6 +153,40 @@ namespace prjLocadora
             btnNovo.Enabled = true;
             btnAlterar.Enabled = true;
             btnExcluir.Enabled = true;
+            btnPrimeiro.Enabled = true;
+            btnAnterior.Enabled = true;
+            btnProximo.Enabled = true;
+            btnUltimo.Enabled = true;
+            carregar();
+        }
+
+        private void carregar()
+        {
+            dtProdutora = new DataTable();
+            string sql = "SELECT * FROM tbl_Produtora";
+            SqlConnection con = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader reader;
+            con.Open();
+            try
+            {
+                using (reader = cmd.ExecuteReader())
+                {
+                    dtProdutora.Load(reader);
+                    totalRegistro = dtProdutora.Rows.Count;
+                    registoAtual = 0;
+                    navegar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.ToString());
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -163,6 +212,7 @@ namespace prjLocadora
             {
                 con.Close();
             }
+            carregar();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -174,7 +224,49 @@ namespace prjLocadora
             txtProd.Enabled = true;
             txtEmailProd.Enabled = true;
             txtTelProd.Enabled = true;
+            btnPrimeiro.Enabled = false;
+            btnAnterior.Enabled = false;
+            btnProximo.Enabled = false;
+            btnUltimo.Enabled = false;
 
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            if(registoAtual<totalRegistro - 1)
+            {
+                registoAtual++;
+                navegar();
+            }
+
+
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if(registoAtual > 0)
+            {
+                registoAtual--;
+                navegar();
+            }
+        }
+
+        private void btnUltimo_Click(object sender, EventArgs e)
+        {
+            if(registoAtual< totalRegistro - 1)
+            {
+                registoAtual = totalRegistro - 1;
+                navegar();
+            }
+        }
+
+        private void btnPrimeiro_Click(object sender, EventArgs e)
+        {
+            if (registoAtual > 0 )
+            {
+                registoAtual = 0;
+                navegar(); 
+            }
         }
     }
 }
