@@ -13,7 +13,7 @@ namespace prjLocadora
 {
     public partial class frmProdutoras : Form
     {
-        int registoAtual = 0;
+        int registroAtual = 0;
         int totalRegistro = 0;
         DataTable dtProdutora = new DataTable();
         String connectionString = @"Server=darnassus\motorhead; Database=db_230717; User Id=230717; Password=a12345678A";
@@ -26,10 +26,10 @@ namespace prjLocadora
 
         private void navegar()
         {
-            txtCodProd.Text = dtProdutora.Rows[registoAtual][0].ToString();
-            txtProd.Text = dtProdutora.Rows[registoAtual][1].ToString();
-            txtTelProd.Text = dtProdutora.Rows[registoAtual][2].ToString();
-            txtEmailProd.Text = dtProdutora.Rows[registoAtual][3].ToString();
+            txtCodProd.Text = dtProdutora.Rows[registroAtual][0].ToString();
+            txtProd.Text = dtProdutora.Rows[registroAtual][1].ToString();
+            txtTelProd.Text = dtProdutora.Rows[registroAtual][2].ToString();
+            txtEmailProd.Text = dtProdutora.Rows[registroAtual][3].ToString();
 
         }
         private void frmProdutoras_Load(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace prjLocadora
                 {
                     dtProdutora.Load(reader);
                     totalRegistro = dtProdutora.Rows.Count;
-                    registoAtual = 0;
+                    registroAtual = 0;
                     navegar(); 
                 }
             } catch(Exception ex)
@@ -175,7 +175,7 @@ namespace prjLocadora
                 {
                     dtProdutora.Load(reader);
                     totalRegistro = dtProdutora.Rows.Count;
-                    registoAtual = 0;
+                    registroAtual = 0;
                     navegar();
                 }
             }
@@ -233,9 +233,9 @@ namespace prjLocadora
 
         private void btnProximo_Click(object sender, EventArgs e)
         {
-            if(registoAtual<totalRegistro - 1)
+            if(registroAtual<totalRegistro - 1)
             {
-                registoAtual++;
+                registroAtual++;
                 navegar();
             }
 
@@ -244,27 +244,27 @@ namespace prjLocadora
 
         private void btnAnterior_Click(object sender, EventArgs e)
         {
-            if(registoAtual > 0)
+            if(registroAtual > 0)
             {
-                registoAtual--;
+                registroAtual--;
                 navegar();
             }
         }
 
         private void btnUltimo_Click(object sender, EventArgs e)
         {
-            if(registoAtual< totalRegistro - 1)
+            if(registroAtual< totalRegistro - 1)
             {
-                registoAtual = totalRegistro - 1;
+                registroAtual = totalRegistro - 1;
                 navegar();
             }
         }
 
         private void btnPrimeiro_Click(object sender, EventArgs e)
         {
-            if (registoAtual > 0 )
+            if (registroAtual > 0 )
             {
-                registoAtual = 0;
+                registroAtual = 0;
                 navegar(); 
             }
         }
